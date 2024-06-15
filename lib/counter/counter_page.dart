@@ -9,6 +9,18 @@ class CounterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-        create: (context) => CounterCubit(10), child: CounterView());
+        create: (context) => CounterCubit(10),
+         child: BlocListener<CounterCubit, int>(
+          listener: (context, state) {
+            // if (state == 10) {
+            //   showDialog(
+            //       context: context,
+            //       builder: (context) => AlertDialog(
+            //             content: Text('10 reached'),
+            //           ));
+            }
+          },
+         child: CounterView()));
+  
   }
 }
